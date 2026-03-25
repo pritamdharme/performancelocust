@@ -126,6 +126,31 @@ Each run generates:
 
 ---
 
+## 🚀 Choose Your Testing Framework
+
+This repository includes **two approaches** to the same performance testing scenarios:
+
+### 🐍 **Locust** (Python-driven)
+```bash
+cd locust/
+locust -f locustfiles/booking_load.py --host https://restful-booker.herokuapp.com
+```
+✅ **Best for**: Python developers, custom logic, distributed testing, beautiful UI  
+📍 **Location**: Root directory — `locustfiles/`, `utils/`, `test_data/`
+
+### 🎯 **JMeter** (GUI-based)
+```bash
+cd jmeter/
+jmeter -t test-plans/BookingLoad.jmx
+```
+✅ **Best for**: Teams with JMeter expertise, existing JMeter infrastructure  
+📍 **Location**: `/jmeter` directory — `test-plans/`, `data/`, `config/`  
+📖 **Docs**: See [jmeter/README.md](jmeter/README.md) for full guide
+
+**Same scenarios, different tools** — pick what works for your team!
+
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -236,11 +261,14 @@ HTML reports and CSV stats uploaded as artifacts on every run (7–14 day retent
 
 ## 📚 Suggested Enhancements (Future)
 
+- [x] **JMeter alternative** — Same 4 scenarios in GUI-based format (✅ DONE!)
 - [ ] Database performance profiling (slow query logs during load)
 - [ ] Custom metrics (e.g., "booking success rate" vs. HTTP errors)
 - [ ] Distributed testing across multiple machines
 - [ ] Integration with monitoring (Datadog/New Relic alerts)
 - [ ] Load test against staging with production data (anonymized)
+- [ ] GraphQL performance testing
+- [ ] WebSocket load testing
 
 ---
 
